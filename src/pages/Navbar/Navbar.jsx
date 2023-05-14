@@ -120,12 +120,12 @@ const Navbar = () => {
         <div className="navbar-end">
           {user ? (
             <div className=" flex gap-4 items-center">
-              <p className="my-btn-blue font-bold text-lg">
+              <p className="my-btn-emerald font-bold text-lg">
                 {user.displayName}
               </p>
               <Link
                 onClick={handleLogOut}
-                className="my-btn md:text-lg md:font-semibold normal-case"
+                className="my-btn-g md:text-lg md:font-semibold normal-case"
               >
                 Log Out
               </Link>

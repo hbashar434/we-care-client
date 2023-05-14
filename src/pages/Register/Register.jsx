@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import { Link } from "react-router-dom";
 
 const Register = () => {
-  const { createUser, createProfile } = useContext(AuthContext);
+  const { createUser, createProfile, setReload } = useContext(AuthContext);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -31,6 +32,7 @@ const Register = () => {
             setEmail("");
             setName("");
             setPassword("");
+            setReload(new Date().getTime());
           })
           .catch((error) => {
             const errorMessage = error.message;
@@ -56,7 +58,7 @@ const Register = () => {
               id="name"
               value={name}
               onChange={handleNameChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-emerald-500"
               placeholder="Enter your name"
               required
             />
@@ -73,7 +75,7 @@ const Register = () => {
               id="email"
               value={email}
               onChange={handleEmailChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-emerald-500"
               placeholder="Enter your email"
               required
             />
@@ -90,18 +92,27 @@ const Register = () => {
               id="password"
               value={password}
               onChange={handlePasswordChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-emerald-500"
               placeholder="Enter your password"
               required
             />
           </div>
           <button
             type="submit"
-            className="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           >
             Register
           </button>
         </form>
+        <label>
+          Already Have Account?
+          <Link
+            to="/login"
+            className="label-text-alt underline pl-2 text-lg font-semibold hover:text-emerald-600"
+          >
+            Please Login
+          </Link>
+        </label>
       </div>
     </div>
   );

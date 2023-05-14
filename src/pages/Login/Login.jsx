@@ -1,10 +1,16 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import { useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const from = location.state?.from?.pathname || "/";
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -22,6 +28,7 @@ const Login = () => {
         console.log(user);
         setEmail("");
         setPassword("");
+        navigate(from, { replace: true });
       })
       .catch((error) => console.log(error));
   };
@@ -43,7 +50,7 @@ const Login = () => {
               id="email"
               value={email}
               onChange={handleEmailChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-emerald-500"
               placeholder="Enter your email"
               required
             />
@@ -60,18 +67,27 @@ const Login = () => {
               id="password"
               value={password}
               onChange={handlePasswordChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-indigo-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-emerald-500"
               placeholder="Enter your password"
               required
             />
           </div>
           <button
             type="submit"
-            className="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           >
             Login
           </button>
         </form>
+        <label>
+          New to WeCare?
+          <Link
+            to="/register"
+            className="label-text-alt underline pl-2 text-lg font-semibold hover:text-emerald-600"
+          >
+            Create an Account
+          </Link>
+        </label>
       </div>
     </div>
   );

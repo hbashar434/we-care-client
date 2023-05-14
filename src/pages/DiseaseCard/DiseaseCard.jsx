@@ -14,7 +14,7 @@ const DiseaseCard = () => {
           className="max-w-sm rounded overflow-hidden shadow-lg bg-white flex flex-col"
         >
           <div className="px-6 py-4 flex-grow">
-            <div className="font-bold text-2xl mb-2 my-btn-blue">
+            <div className="font-bold text-2xl mb-2 my-btn-emerald">
               {disease.name}
             </div>
             {/* <p className="text-gray-700 text-base">
