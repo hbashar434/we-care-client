@@ -9,8 +9,8 @@ const Doctors = () => {
       .then((data) => setDoctors(data));
   }, []);
   return (
-    <div className="mx-16 my-16">
-      <h1 className=" text-5xl font-bold text-blue-600 text-center mb-6">
+    <div className="mx-6 lg:mx-16 my-16" id="doctorList">
+      <h1 className=" text-5xl font-bold text-emerald-600 text-center mb-6">
         Meet Our Specialist
       </h1>
       <div className=" grid lg:grid-cols-3 gap-6 ">

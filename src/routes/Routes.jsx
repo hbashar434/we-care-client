@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import DiseaseCard from "../pages/DiseaseCard/DiseaseCard";
+import About from "../pages/About/About";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
         element: <DiseaseCard></DiseaseCard>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/doctors/${params.id}`),
+      },
+      {
+        path: "/about",
+        element: <About></About>,
       },
     ],
   },

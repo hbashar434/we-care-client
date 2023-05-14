@@ -1,5 +1,5 @@
-// import React, { useContext } from "react";
 import { useContext } from "react";
+import { HashLink } from "react-router-hash-link";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
@@ -43,7 +43,9 @@ const Navbar = () => {
                 <NavLink
                   to="/"
                   className={({ isActive }) =>
-                    isActive ? "text-blue-500" : "text-gray-700"
+                    isActive
+                      ? "text-emerald-600 font-bold underline"
+                      : "text-gray-700"
                   }
                 >
                   Home
@@ -53,7 +55,9 @@ const Navbar = () => {
                 <NavLink
                   to="/services"
                   className={({ isActive }) =>
-                    isActive ? "text-blue-500" : "text-gray-700"
+                    isActive
+                      ? "text-emerald-600 font-bold underline"
+                      : "text-gray-700"
                   }
                 >
                   Services
@@ -63,7 +67,9 @@ const Navbar = () => {
                 <NavLink
                   to="/about"
                   className={({ isActive }) =>
-                    isActive ? "text-blue-500" : "text-gray-700"
+                    isActive
+                      ? "text-emerald-600 font-bold underline"
+                      : "text-gray-700"
                   }
                 >
                   About
@@ -73,9 +79,9 @@ const Navbar = () => {
           </div>
           <Link
             to="/"
-            className="normal-case text-blue-500 border-none text-lg md:text-3xl font-bold"
+            className="normal-case text-emerald-600 border-none text-lg md:text-3xl font-bold"
           >
-            We Care
+            WeCare
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -84,27 +90,26 @@ const Navbar = () => {
               <NavLink
                 to="/"
                 className={({ isActive }) =>
-                  isActive ? "text-blue-500" : "text-gray-600"
+                  isActive
+                    ? "text-emerald-600 font-bold underline"
+                    : "text-gray-600"
                 }
               >
                 Home
               </NavLink>
             </li>
             <li className="text-lg font-semibold mr-6">
-              <NavLink
-                to="/services"
-                className={({ isActive }) =>
-                  isActive ? "text-blue-500" : "text-gray-600"
-                }
-              >
+              <HashLink smooth to="/#doctorList" className=" text-gray-600">
                 Services
-              </NavLink>
+              </HashLink>
             </li>
             <li className="text-lg font-semibold">
               <NavLink
                 to="/about"
                 className={({ isActive }) =>
-                  isActive ? "text-blue-500" : "text-gray-600"
+                  isActive
+                    ? " text-emerald-600 font-bold underline"
+                    : "text-gray-600"
                 }
               >
                 About
@@ -115,7 +120,9 @@ const Navbar = () => {
         <div className="navbar-end">
           {user ? (
             <div className=" flex gap-4 items-center">
-              <p className="my-btn-blue font-bold text-lg">{user.displayName}</p>
+              <p className="my-btn-blue font-bold text-lg">
+                {user.displayName}
+              </p>
               <Link
                 onClick={handleLogOut}
                 className="my-btn md:text-lg md:font-semibold normal-case"
@@ -126,7 +133,7 @@ const Navbar = () => {
           ) : (
             <Link
               to="/login"
-              className="my-btn md:text-lg md:font-semibold normal-case"
+              className="my-btn-g md:text-lg md:font-semibold normal-case"
             >
               Login Now
             </Link>

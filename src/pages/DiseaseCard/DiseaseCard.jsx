@@ -36,7 +36,7 @@ const DiseaseCard = () => {
             </p>
           </div>
           <div className="px-6 py-4">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            <button className="bg-emerald-800 hover:bg-emerald-900 text-white font-bold py-2 px-4 rounded ">
               Make an Appointment
             </button>
           </div>
